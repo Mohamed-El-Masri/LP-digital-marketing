@@ -48,34 +48,34 @@ const HomePage: React.FC = () => {
                 <h3>لوحة الأرقام</h3>
                 <p>إحصائيات ديناميكية</p>
               </div>
-              <div className="stats-grid">
-                <div className="stats-slider">
-                  <div className="stat-card">
-                    <span className="stat-number">500+</span>
-                    <span className="stat-label">عميل راضٍ</span>
+              <div className="phone-stats-grid">
+                <div className="phone-stats-slider">
+                  <div className="phone-stat-card">
+                    <span className="phone-stat-number">500+</span>
+                    <span className="phone-stat-label">عميل راضٍ</span>
                   </div>
-                  <div className="stat-card">
-                    <span className="stat-number">2M+</span>
-                    <span className="stat-label">عميل محتمل</span>
+                  <div className="phone-stat-card">
+                    <span className="phone-stat-number">2M+</span>
+                    <span className="phone-stat-label">عميل محتمل</span>
                   </div>
-                  <div className="stat-card">
-                    <span className="stat-number">250%</span>
-                    <span className="stat-label">نمو متوسط</span>
+                  <div className="phone-stat-card">
+                    <span className="phone-stat-number">250%</span>
+                    <span className="phone-stat-label">نمو متوسط</span>
                   </div>
-                  <div className="stat-card">
-                    <span className="stat-number">98%</span>
-                    <span className="stat-label">معدل النجاح</span>
+                  <div className="phone-stat-card">
+                    <span className="phone-stat-number">98%</span>
+                    <span className="phone-stat-label">معدل النجاح</span>
                   </div>
-                  <div className="stat-card">
-                    <span className="stat-number">15+</span>
-                    <span className="stat-label">سنة خبرة</span>
+                  <div className="phone-stat-card">
+                    <span className="phone-stat-number">15+</span>
+                    <span className="phone-stat-label">سنة خبرة</span>
                   </div>
                 </div>
-                <div className="stats-indicators">
-                  <div className="stats-dot"></div>
-                  <div className="stats-dot"></div>
-                  <div className="stats-dot"></div>
-                  <div className="stats-dot"></div>
+                <div className="phone-stats-indicators">
+                  <div className="phone-stats-dot"></div>
+                  <div className="phone-stats-dot"></div>
+                  <div className="phone-stats-dot"></div>
+                  <div className="phone-stats-dot"></div>
                 </div>
               </div>
             </div>

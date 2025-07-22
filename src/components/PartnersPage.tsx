@@ -84,8 +84,8 @@ const PartnersPage: React.FC = () => {
             </p>
             <div className="partnership-stats">
               {achievements.map((achievement, index) => (
-                <div key={index} className="stat-card">
-                  <span className="stat-percentage">{achievement.percentage}</span>
+                <div key={index} className="partners-stat-card">
+                  <span className="partners-stat-percentage">{achievement.percentage}</span>
                   <h4>{achievement.title}</h4>
                   <p>{achievement.description}</p>
                 </div>
