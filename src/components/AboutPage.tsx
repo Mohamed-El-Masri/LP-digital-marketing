@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './PageLayout.css';
 import './AboutPage.css';
+import SharedActions from './SharedActions';
 
 const AboutPage: React.FC = () => {
   return (
@@ -117,6 +118,9 @@ const AboutPage: React.FC = () => {
           </div>
         </section>
       </div>
+      
+      {/* المكون المشترك للإجراءات */}
+      <SharedActions />
     </div>
   );
 };

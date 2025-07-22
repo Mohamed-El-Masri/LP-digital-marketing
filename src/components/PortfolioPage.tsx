@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './PageLayout.css';
+import SharedActions from './SharedActions';
 
 const PortfolioPage: React.FC = () => {
   const projects = [
@@ -232,6 +233,9 @@ const PortfolioPage: React.FC = () => {
           </div>
         </section>
       </div>
+      
+      {/* المكون المشترك للإجراءات */}
+      <SharedActions />
     </div>
   );
 };

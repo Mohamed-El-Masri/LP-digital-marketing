@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
+import HomeBackToTop from './HomeBackToTop';
 
 const HomePage: React.FC = () => {
   const sections = [
@@ -130,6 +131,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* زر العودة للأعلى للصفحة الرئيسية */}
+      <HomeBackToTop />
     </div>
   );
 };

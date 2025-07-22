@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './PageLayout.css';
 import './NumbersPage.css';
+import SharedActions from './SharedActions';
 
 const NumbersPage: React.FC = () => {
   const mainStats = [
@@ -243,6 +244,9 @@ const NumbersPage: React.FC = () => {
           </div>
         </section>
       </div>
+      
+      {/* المكون المشترك للإجراءات */}
+      <SharedActions />
     </div>
   );
 };

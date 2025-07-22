@@ -1,7 +1,9 @@
 
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './PageLayout.css';
 import './ContactPage.css';
+import SharedActions from './SharedActions';
 
 const ContactPage: React.FC = () => {
   return (
@@ -190,6 +192,9 @@ const ContactPage: React.FC = () => {
           </div>
         </section>
       </div>
+      
+      {/* المكون المشترك للإجراءات */}
+      <SharedActions />
     </div>
   );
 };

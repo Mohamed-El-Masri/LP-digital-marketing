@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './PageLayout.css';
 import './ServicesPage.css';
+import SharedActions from './SharedActions';
 
 const ServicesPage: React.FC = () => {
   const services = [
@@ -146,6 +147,9 @@ const ServicesPage: React.FC = () => {
           </div>
         </section>
       </div>
+      
+      {/* المكون المشترك للإجراءات */}
+      <SharedActions />
     </div>
   );
 };

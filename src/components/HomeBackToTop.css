@@ -1,0 +1,184 @@
+/* زر العودة للأعلى في الصفحة الرئيسية */
+.home-back-to-top-button {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 
+    0 8px 30px rgba(102, 126, 234, 0.2),
+    0 4px 15px rgba(118, 75, 162, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 1000;
+  animation: fadeInUp 0.4s ease-out;
+  
+  /* تدرج لوني متطور */
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.9) 0%, 
+    rgba(118, 75, 162, 0.9) 50%,
+    rgba(255, 107, 107, 0.9) 100%);
+  background-size: 200% 200%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.home-back-to-top-button:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 
+    0 15px 40px rgba(102, 126, 234, 0.3),
+    0 8px 20px rgba(118, 75, 162, 0.25),
+    0 0 30px rgba(255, 107, 107, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  background-position: 100% 100%;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.home-back-to-top-button:active {
+  transform: translateY(-3px) scale(1.05);
+  transition: transform 0.1s ease;
+}
+
+.home-back-to-top-button i {
+  font-size: 1.1rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.home-back-to-top-button:hover i {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* تأثيرات إضافية */
+.home-back-to-top-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(102, 126, 234, 0.6) 0%,
+    rgba(118, 75, 162, 0.6) 25%,
+    rgba(255, 107, 107, 0.6) 50%,
+    rgba(76, 175, 80, 0.6) 75%,
+    rgba(102, 126, 234, 0.6) 100%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  animation: rotateGradient 3s linear infinite;
+}
+
+.home-back-to-top-button:hover::before {
+  opacity: 1;
+}
+
+/* تأثير النبضة */
+.home-back-to-top-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.3) 0%, 
+    rgba(118, 75, 162, 0.3) 100%);
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.home-back-to-top-button:hover::after {
+  transform: scale(1.5);
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      0 15px 40px rgba(102, 126, 234, 0.3),
+      0 8px 20px rgba(118, 75, 162, 0.25),
+      0 0 30px rgba(255, 107, 107, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 20px 50px rgba(102, 126, 234, 0.4),
+      0 12px 25px rgba(118, 75, 162, 0.35),
+      0 0 40px rgba(255, 107, 107, 0.3);
+  }
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+  .home-back-to-top-button {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 55px;
+    height: 55px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-back-to-top-button {
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+  
+  .home-back-to-top-button:hover {
+    transform: translateY(-3px) scale(1.05);
+  }
+}
+
+/* تأثيرات خاصة للأجهزة اللمسية */
+@media (hover: none) {
+  .home-back-to-top-button:hover {
+    transform: none;
+    box-shadow: 
+      0 8px 30px rgba(102, 126, 234, 0.2),
+      0 4px 15px rgba(118, 75, 162, 0.15);
+    animation: none;
+  }
+  
+  .home-back-to-top-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
