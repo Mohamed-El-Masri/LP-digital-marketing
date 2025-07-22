@@ -1,0 +1,412 @@
+/* تصميم صفحة الأرقام والإحصائيات */
+
+.numbers-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, 
+    rgba(248, 249, 250, 0.9) 0%, 
+    rgba(255, 255, 255, 1) 30%,
+    rgba(248, 249, 250, 0.9) 100%);
+  position: relative;
+}
+
+.numbers-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(102, 126, 234, 0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+  z-index: -1;
+}
+
+/* شبكة الإحصائيات المحسنة */
+.numbers-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+
+}
+
+.numbers-stat-card {
+  background: var(--bg-white);
+  padding: var(--spacing-xxl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.08),
+    0 5px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-primary);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: var(--transition-normal);
+}
+
+.numbers-stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.02) 0%, 
+    rgba(118, 75, 162, 0.02) 100%);
+  opacity: 0;
+  transition: var(--transition-normal);
+  z-index: 1;
+}
+
+.numbers-stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.numbers-stat-card:hover::after {
+  opacity: 1;
+}
+
+.numbers-stat-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.numbers-stat-icon {
+  font-size: 3.5rem;
+  margin-bottom: var(--spacing-lg);
+  display: block;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  color: white;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+  transition: var(--transition-normal);
+  position: relative;
+  z-index: 2;
+}
+
+.numbers-stat-card:hover .numbers-stat-icon {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+}
+
+.numbers-stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  display: block;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 2;
+}
+
+.numbers-stat-card h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.numbers-stat-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* قسم الإنجازات */
+.achievements-section {
+  background: var(--bg-white);
+  padding: var(--spacing-xxl);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.08),
+    0 5px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-primary);
+  margin: var(--spacing-xxl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievements-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  opacity: 0.05;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.achievements-section h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+  font-size: 2.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.achievements-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--bg-primary);
+  border-radius: 2px;
+}
+
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.achievement-item {
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.03) 0%, 
+    rgba(118, 75, 162, 0.03) 100%);
+  border-radius: var(--radius-lg);
+  border-left: 6px solid var(--primary-color);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.05) 0%, 
+    rgba(118, 75, 162, 0.05) 100%);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.achievement-item:hover::before {
+  opacity: 1;
+}
+
+.achievement-item:hover {
+  transform: translateX(-10px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
+
+.achievement-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.achievement-title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.achievement-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* قسم المقاييس الرئيسية */
+.key-metrics {
+  background: linear-gradient(135deg, 
+    var(--primary-color) 0%, 
+    var(--secondary-color) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-xxl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  margin: var(--spacing-xxl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.key-metrics::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="metrics" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="white" opacity="0.08"/><circle cx="5" cy="5" r="1" fill="white" opacity="0.05"/><circle cx="25" cy="25" r="1.5" fill="white" opacity="0.06"/></pattern></defs><rect width="100%" height="100%" fill="url(%23metrics)"/></svg>');
+  animation: metrics-move 25s linear infinite;
+}
+
+@keyframes metrics-move {
+  from { transform: translateX(0) translateY(0); }
+  to { transform: translateX(-30px) translateY(-30px); }
+}
+
+.key-metrics .metrics-content {
+  position: relative;
+  z-index: 2;
+}
+
+.key-metrics h3 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-white);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.metric-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition-normal);
+}
+
+.metric-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.metric-number {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.metric-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.metric-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: var(--spacing-xs);
+  line-height: 1.5;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-section {
+    padding: var(--spacing-xl);
+  }
+  
+  .key-metrics {
+    padding: var(--spacing-xl);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .achievement-item {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .numbers-stat-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .numbers-stat-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+  
+  .numbers-stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .numbers-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
